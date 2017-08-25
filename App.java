@@ -13,13 +13,11 @@ public class App{
         while (true) {
             System.out.println("Press 1 to add task.\nPress 2 to show all tasks.\nPress 3 to change task's status.");
             scanner = new Scanner(System.in);
-            String option = scanner.next();
+            String option = scanner.nextLine();
 
             if (option.equals("1")) {
                 System.out.println("Enter task to do: ");
-                scanner = new Scanner(System.in);
                 String title = scanner.nextLine();
-                scanner.close()
                 newList.addItem(title);
             }
 
@@ -29,27 +27,19 @@ public class App{
 
             else if (option.equals("3")) {
                 System.out.println("Which task status you want to change? ");
-                scanner = new Scanner(System.in);
                 String task = scanner.nextLine();
-                scanner.close()
 
-                for(int i = 0; i < newList.todoItems.size(); i++) {
-                    if (newList.todoItems.get(i).getTitle().equals(task)) {
-                        if (newList.todoItems.get(i).isDone == false) {
-                            newList.todoItems.get(i).Mark();
+                for(TodoItem item: newList.todoItems) {
+                    if (item.getTitle().equals(task)) {
+                        if (item.isDone == false) {
+                            item.Mark();
                         }
                         else {
-                            newList.todoItems.get(i).Unmark();
+                            item.Unmark();
                         }
                     }
-
-                    else {
-                        System.out.println("There is no such task.");
-                        System.exit(0);
-                    }
-
-
                 }
+
             }
 
             else {
