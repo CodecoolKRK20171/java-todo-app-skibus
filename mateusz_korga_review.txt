@@ -1,0 +1,12 @@
+ToDoItem line 15: Lack of attribute is_done in paranthesis in constructor
+toDoItem line 20, 25, 31 35: You don't need to write this before variables is_done and title because its less readable
+
+TodoList line 6: There is intend before import and you dont need to import everything. Just ArrayList.
+TodoList line 13: Method add_item returns nothing and its not static method. It's should be rather public void method
+TodoList line 15: In line 15 you make instance of class not string. It should looks like TodoItem newItem = new TodoItem(title);
+
+App line 14: You make new items in TodoList so its not necessary to make it here again.
+App line 15: If you want to make new instance of TodoList class you should do it in this way: static TodoList list = new TodoList();
+App line 28: Remember to close scanner.
+App line 30: You made new ToDoItem istance and added it to TodoList. But I dont get why you try to return title of new item.
+            This method should returns nothing.
